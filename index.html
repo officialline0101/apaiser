@@ -1611,13 +1611,19 @@ function selectVisit(element) {
             const calendar = document.getElementById('calendar1');
             const table = calendar.querySelector('table tbody');
 
-            const times = [
-                '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
-                '12:00', '12:30', '13:00', '13:30',
-                '14:00', '14:30', '15:00', '15:30',
-                '16:00', '16:30', '17:00', '17:30',
-                '18:00'
-            ];
+const times = [
+  '09:00', '09:15', '09:30', '09:45',
+  '10:00', '10:15', '10:30', '10:45',
+  '11:00', '11:15', '11:30', '11:45',
+  '12:00', '12:15', '12:30', '12:45',
+  '13:00', '13:15', '13:30', '13:45',
+  '14:00', '14:15', '14:30', '14:45',
+  '15:00', '15:15', '15:30', '15:45',
+  '16:00', '16:15', '16:30', '16:45',
+  '17:00', '17:15', '17:30', '17:45',
+  '18:00', '18:15', '18:30', '18:45',
+  '19:00'
+];
 
             if (table.rows.length === 0) {
                 for (const time of times) {
@@ -1685,30 +1691,20 @@ function selectVisit(element) {
                     // メニュー時間と訪問回数の時間を合計して、終了時間を設定
                     slotEnd.setMinutes(slotStart.getMinutes() + menuDuration + visitDuration + irradiationsDuration);
 
+    if (
+        day.getDay() === 6 && // 土曜日
+        (
+            (slotStart.getHours() >= 9 && slotStart.getHours() < 15) || // 09:00〜14:59
+            (slotStart.getHours() === 14 && slotStart.getMinutes() <= 59)
+        )
+    ) {
+        cell.textContent = '✕';
+        cell.classList.add('unavailable');
+        continue;
+    }
+                    
                     // 終了時間が翌日 (0時以降) になる場合は✕に設定
                     if (slotEnd.getDate() !== slotStart.getDate()) {
-                        cell.textContent = '✕';
-                        cell.classList.add('unavailable');
-                        continue;
-                    }
-
-                    // 18時以降に終了する予約を不可にする (17:30は可)
-                    if (slotEnd.getHours() === 18 && slotEnd.getMinutes() > 0) {
-                        cell.textContent = '✕';
-                        cell.classList.add('unavailable');
-                        continue;
-                    } else if (slotEnd.getHours() > 18) {
-                        cell.textContent = '✕';
-                        cell.classList.add('unavailable');
-                        continue;
-                    }
-
-                    // ★追加：12時〜14時の間を✕にする
-                    if (
-                        (slotStart.getHours() === 12) ||
-                        (slotStart.getHours() === 13) ||
-                        (slotStart.getHours() === 14 && slotStart.getMinutes() === 0)
-                    ) {
                         cell.textContent = '✕';
                         cell.classList.add('unavailable');
                         continue;
@@ -1754,11 +1750,6 @@ function selectVisit(element) {
                     }
                     // 営業日で、指定されている時間以外の時間は×
                     else if (businessEventTimes.length > 0) {
-                        cell.textContent = '✕';
-                        cell.classList.add('unavailable');
-                    }
-                    // 日曜日で、営業日ではない場合
-                    else if (slotStart.getDay() === 0 && !isBusinessDay && businessEventTimes.length === 0) {
                         cell.textContent = '✕';
                         cell.classList.add('unavailable');
                     }
