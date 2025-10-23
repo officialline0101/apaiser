@@ -17,7 +17,7 @@
             /* 画面中央に固定 */
             transform: translateY(-50%) translateX(10px);
             /* 中央配置と右ずらし */
-            background: #13ca5e;
+            background: #eedcb3;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -104,7 +104,7 @@
         }
 
         h1 {
-            background: linear-gradient(135deg, #13ca5e, #13ca5e);
+            background: linear-gradient(135deg, #eedcb3, #eedcb3);
             color: white;
             padding: 20px;
             border-radius: 0 0px 0px 0px;
@@ -123,7 +123,7 @@
             margin-bottom: 20px;
             padding: 3px;
             font-weight: 400;
-            background-color: #13ca5e;
+            background-color: #eedcb3;
             color: #ffffff;
             border-radius: 0px;
             font-size: 18px;
@@ -141,7 +141,7 @@
             display: block;
             margin-bottom: 20px;
             padding: 3px;
-            background-color: #13ca5e;
+            background-color: #eedcb3;
             color: #ffffff;
             border-radius: 0px;
             font-size: 18px;
@@ -186,12 +186,12 @@
             align-items: center;
             justify-content: center;
             background: white;
-            color: #13ca5e;
+            color: #eedcb3;
             font-weight: bold;
             font-size: 0.9em;
             border-radius: 4px;
             padding: 2px 6px;
-            border: 2px solid #13ca5e;
+            border: 2px solid #eedcb3;
         }
 
         input[type="text"],
@@ -598,7 +598,7 @@
 
         .highlight-background {
             cursor: pointer;
-            background-color: #13ca5e;
+            background-color: #eedcb3;
             padding: 10px;
             border-radius: 6px;
             font-size: 18px;
@@ -645,7 +645,7 @@
         }
 
         .edit-button:hover {
-            background-color: #13ca5e;
+            background-color: #eedcb3;
             color: #ffffff;
             /* ← 黒背景に合わせて文字色を白にすると視認性が上がります（任意） */
         }
@@ -654,7 +654,7 @@
 
         input:focus,
         textarea:focus {
-            border-color: #13ca5e;
+            border-color: #eedcb3;
             outline: none;
             box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
         }
@@ -679,13 +679,13 @@
             width: 100%;
             padding: 15px;
             font-size: 18px;
-            background-color: #13ca5e;
+            background-color: #eedcb3;
             margin-top: 12px;
             /* ← ここで下方向にずらす */
         }
 
         .submit-button:hover {
-            background-color: #13ca5e;
+            background-color: #eedcb3;
         }
 
         @media (max-width: 768px) {
@@ -708,7 +708,7 @@
             /* ここで枠線を指定 */
             outline-offset: 2px;
             /* 外側に色を追加 */
-            box-shadow: 0 0 0 3px #13ca5e
+            box-shadow: 0 0 0 3px #eedcb3
         }
 
         /* 必須マークのスタイル */
@@ -1547,7 +1547,7 @@ function selectVisit(element) {
             // LINEトークにメッセージを送信
             liff.sendMessages([{
                 type: 'text',
-                text: `【ご予約内容】\n【店舗】：apaiser\nお名前：${formData.name}\n電話番号：${formData.phone}\nご来店回数：${formData.numberCount}\nオフの有無：${formData.visitCount}\nコース：${formData.selectedMenu}\nメニュー：${formData.selectedSymptom}\n希望日時：\n ${formData.dates[0]}\nメッセージ：${formData.message}`
+                text: `【ご予約内容】\nお名前：${formData.name}\n電話番号：${formData.phone}\nご来店回数：${formData.numberCount}\nオフの有無：${formData.visitCount}\nコース：${formData.selectedMenu}\nメニュー：${formData.selectedSymptom},${formData.irradiationsCount}\n希望日時：\n ${formData.dates[0]}\nメッセージ：${formData.message}`
             }]).then(() => {
                 /* メッセージ送信成功時の処理 */
                 alert('当日キャンセルは無いようにお願いいたします。');
@@ -1579,7 +1579,7 @@ function selectVisit(element) {
                 return;
             }
 
-            const url = 'https://script.google.com/macros/s/AKfycbzSFIXWxKgzOVT4UxOzxnKbmWwr-sLRPCetBtqcBnK6kkEh8SQZyfnOlLJGAkNl4Hlb/exec' +
+            const url = 'https://script.google.com/macros/s/AKfycbwCxnJaxGZ46c3TnnesuZcD_zuxuVoSHoDHo5MxkRzChcK5vZDwBs4HstzkXO-KLyuDYA/exec' +
                 `?startTime=${startTime.toISOString()}&endTime=${endTime.toISOString()}`;
 
             try {
