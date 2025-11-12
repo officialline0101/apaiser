@@ -15,7 +15,7 @@
             /* さらに右へ */
             top: 80%;
             /* 画面中央に固定 */
-            transform: translateY(-50%) translateX(10px);
+            transform: translateY(-50%) translateX(15px);
             /* 中央配置と右ずらし */
             background: #eedcb3;
             display: flex;
@@ -96,7 +96,7 @@
             background-color: #fdfdfd;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 90%;
+            width: 96%;
             max-width: 500px;
             padding: 25px;
             box-sizing: border-box;
@@ -1270,39 +1270,29 @@
             // カレンダーを更新するために取得する日付を渡す
             fetchAvailability(currentDate);
 
-            if (treatmentId === 'treatment1') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,300円</strong></div>`;
-            } else if (treatmentId === 'treatment2') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：4,800円</strong></div>`;
-            } else if (treatmentId === 'treatment3') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：45分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：4,500円</strong></div>`;
-            } else if (treatmentId === 'treatment4') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：30分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：3,700円</strong></div>`;
-            } else if (treatmentId === 'treatment5') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,500円</strong></div>`;
-            } else if (treatmentId === 'treatment6') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,500円〜</strong></div>`;
-            } else if (treatmentId === 'treatment7') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：7,500円〜</strong></div>`;
-            } else if (treatmentId === 'treatment8') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：100分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：11,000円〜</strong></div>`;
-            } else if (treatmentId === 'treatment9') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,300円</strong></div>`;
-            } else if (treatmentId === 'treatment10') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,300円</strong></div>`;
-            } else if (treatmentId === 'treatment11') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：100分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：11,000円〜</strong></div>`;
-            } else if (treatmentId === 'treatment12') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：40分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：3,500円</strong></div>`;
-            } else if (treatmentId === 'treatment13') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：75分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,300円</strong></div>`;
-            } else if (treatmentId === 'treatment14') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,600円</strong></div>`;
-            } else if (treatmentId === 'treatment15') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：100分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：11,000円</strong></div>`;
-            } else {
-                treatmentText.innerHTML = '';
-            }
+if (treatmentId === 'treatment1') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>通常料金：6,500円<br><span style="color: green;">LINE限定料金：6,300円</span></strong></div>`;
+} else if (treatmentId === 'treatment2') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>通常料金：5,000円<br><span style="color: green;">LINE限定料金：4,800円</span></strong></div>`;
+} else if (treatmentId === 'treatment3') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：45分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>通常料金：4,500円<br><span style="color: green;">LINE限定料金：4,300円</span></strong></div>`;
+} else if (treatmentId === 'treatment4') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：30分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>通常料金：3,700円<br><span style="color: green;">LINE限定料金：3,500円</span></strong></div>`;
+} else if (treatmentId === 'treatment5') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>通常料金：8,000円<br><span style="color: green;">LINE限定料金：6,500円</span></strong></div>`;
+} else if (treatmentId === 'treatment6') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>通常料金：6,500円〜<br><span style="color: green;">LINE限定料金：6,300円〜</span></strong></div>`;
+} else if (treatmentId === 'treatment7') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>通常料金：7,500円〜<br><span style="color: green;">LINE限定料金：7,300円〜</span></strong></div>`;
+} else if (treatmentId === 'treatment8') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：100分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>通常料金：12,000円〜<br><span style="color: green;">LINE限定料金：11,000円〜</span></strong></div>`;
+} else if (treatmentId === 'treatment9') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>通常料金：6,500円<br><span style="color: green;">LINE限定料金：6,300円</span></strong></div>`;
+} else if (treatmentId === 'treatment10') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>通常料金：6,500円<br><span style="color: green;">LINE限定料金：6,300円</span></strong></div>`;
+} else if (treatmentId === 'treatment11') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：100分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>通常料金：12,000円〜<br><span style="color: green;">LINE限定料金：11,000円〜</span></strong></div>`;
+}
 
             // `treatment-text` を選択されたボタンの直後に移動
             button.parentNode.insertBefore(treatmentText, button.nextSibling);
