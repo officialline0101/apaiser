@@ -840,6 +840,7 @@
             <button type="button" id="repeatVisit" onclick="selectVisit(this)">再来当店オフ</button>
             <button type="button" id="sanVisit" onclick="selectVisit(this)">当店オフのみ</button>
             <button type="button" id="yonVisit" onclick="selectVisit(this)">他店オフのみ</button>
+            <button type="button" id="goVisit" onclick="selectVisit(this)">オフ無し</button>
         </div>
 
         <div class="label" id="course">メニューをお選びください<span class="required">必須</span></div>
@@ -1384,6 +1385,7 @@ function selectVisit(element) {
     document.getElementById('repeatVisit').classList.remove('active');
     document.getElementById('sanVisit').classList.remove('active');
     document.getElementById('yonVisit').classList.remove('active');
+    document.getElementById('goVisit').classList.remove('active');
 
     if (isActive) {
         // 選択されているボタンをもう一度押した場合 → 選択解除
