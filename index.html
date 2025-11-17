@@ -885,10 +885,11 @@
                 <span class="highlight-text">◆ブロウ◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment12')" data-price="15000">スタイリング</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment13')" data-price="15000">パリジェンヌブローリフト</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment14')" data-price="15000">インプット</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment15')" data-price="15000">ラッシュリフト&ブロウ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment12')" data-price="15000">アイシャンプー</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment13')" data-price="15000">スタイリング</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment14')" data-price="15000">パリジェンヌブローリフト</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment15')" data-price="15000">インプット</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment16')" data-price="15000">ラッシュリフト&ブロウ</button>
             </div>
         </div>
 
@@ -999,6 +1000,7 @@
             'ラッシュリフト': 60,
             'パリジェンヌ': 60,
             'アンドヘルシー': 100,
+            'アイシャンプー': 10,
             'スタイリング': 40,
             'パリジェンヌブローリフト': 75,    
             'インプット': 60,
@@ -1293,6 +1295,16 @@ if (treatmentId === 'treatment1') {
     treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>通常料金：6,500円<br><span style="color: green;">LINE限定料金：6,300円</span></strong></div>`;
 } else if (treatmentId === 'treatment11') {
     treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：100分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>通常料金：12,000円〜<br><span style="color: green;">LINE限定料金：11,000円〜</span></strong></div>`;
+} else if (treatmentId === 'treatment12') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：10分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：700円</span></strong></div>`;
+} else if (treatmentId === 'treatment13') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：40分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：3,500円</span></strong></div>`;
+} else if (treatmentId === 'treatment14') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：75分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,500円</span></strong></div>`;
+} else if (treatmentId === 'treatment15') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,600円</span></strong></div>`;
+} else if (treatmentId === 'treatment16') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：100分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：11,000円</span></strong></div>`;
 }
 
             // `treatment-text` を選択されたボタンの直後に移動
