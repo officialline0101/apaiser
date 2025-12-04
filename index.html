@@ -858,14 +858,14 @@
                 <span class="highlight-text">◆まつエク◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="15000">シングルつけ放題</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment2')" data-price="15000">シングル140本</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment3')" data-price="15000">シングル100本</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment4')" data-price="15000">シングル60本</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment5')" data-price="15000">中顔面短縮160本上下振り分けOK</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment6')" data-price="15000">ボリュームラッシュ3D</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment7')" data-price="15000">ボリュームラッシュ5D</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment8')" data-price="15000">アンドヘルシー</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="6300">シングルつけ放題</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment2')" data-price="4800">シングル140本</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment3')" data-price="4300">シングル100本</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment4')" data-price="3500">シングル60本</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment5')" data-price="6500">中顔面短縮160本上下振り分けOK</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment6')" data-price="6300">ボリュームラッシュ3D</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment7')" data-price="7300">ボリュームラッシュ5D</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment8')" data-price="11000">アンドヘルシー</button>
             </div>
         </div>
 
@@ -874,9 +874,9 @@
                 <span class="highlight-text">◆ラッシュリフト◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-price="15000">ラッシュリフト</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment10')" data-price="15000">パリジェンヌ</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment11')" data-price="15000">アンドヘルシー</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-price="6300">ラッシュリフト</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment10')" data-price="6300">パリジェンヌ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment11')" data-price="11000">アンドヘルシー</button>
             </div>
         </div>
 
@@ -885,11 +885,11 @@
                 <span class="highlight-text">◆ブロウ◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment12')" data-price="15000">アイシャンプー</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment13')" data-price="15000">スタイリング</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment14')" data-price="15000">パリジェンヌブローリフト</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment15')" data-price="15000">インプット</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment16')" data-price="15000">ラッシュリフト&ブロウ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment12')" data-price="700">アイシャンプー</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment13')" data-price="3500">スタイリング</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment14')" data-price="6500">パリジェンヌブローリフト</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment15')" data-price="6600">インプット</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment16')" data-price="11000">ラッシュリフト&ブロウ</button>
             </div>
         </div>
 
@@ -958,6 +958,7 @@
         let totalAmount = 0; // 合計金額を格納する変数
         let menuPrice = 0; // メニューの価格
         let optionsPrice = 0; // オプションの合計価格
+      let selectedHasRange = false; // グローバル変数として追加
 
         document.addEventListener('DOMContentLoaded', function () {
             liff.init({
@@ -1009,6 +1010,26 @@
 
         let selectedMenuTime = 0;
 
+// どのメニューが「〜」かを定義
+const treatmentHasRange = {
+  treatment1: false,
+  treatment2: false,
+  treatment3: false,
+  treatment4: false,
+  treatment5: false,
+  treatment6: true,  // 〜 を付けたい
+  treatment7: true,  // 〜 を付けたい
+  treatment8: true,  // 〜 を付けたい
+  treatment9: false,
+  treatment10: false,
+  treatment11: true, // 〜 を付けたい
+  treatment12: false,
+  treatment13: false,
+  treatment14: false,
+  treatment15: false,
+  treatment16: false
+};
+      
         // 入力内容をローカルストレージに保存
         function saveInput(id) {
             const value = document.getElementById(id).value;
@@ -1318,6 +1339,9 @@ if (treatmentId === 'treatment1') {
             selectedSymptom = [symptomName];  // 選択されたメニュー名を配列として保存
             menuPrice = parseInt(button.getAttribute('data-price'), 10) || 0;  // メニューの価格を取得
 
+    // ここでフラグを更新
+    selectedHasRange = !!treatmentHasRange[treatmentId];
+          
             // 表示を更新
             updateDisplayInfo();
         }
@@ -1519,13 +1543,16 @@ function selectVisit(element) {
             updateDisplayInfo();
         }
 
-        function submitForm() {
+function submitForm() {
+    const lineLimitedPrice = menuPrice + optionsPrice;
             const formData = {
                 name: document.getElementById('name').value.trim(),
                 phone: document.getElementById('phone').value.trim(),
                 numberCount: numberCount,
                 visitCount: visitCount,
                 selectedMenu: selectedMenu,
+        lineLimitedPrice: lineLimitedPrice,
+        hasRange: selectedHasRange,  // ここでフラグを一緒に持っていく
                 selectedSymptom: selectedSymptom && selectedSymptom.length > 0 ? selectedSymptom : null, // 空の選択肢をチェック
                 irradiationsCount: irradiationsCount,
                 dates: selectedFullDate ? [selectedFullDate] : null, // 空チェック
@@ -1548,11 +1575,16 @@ function selectVisit(element) {
                 return;
             }
 
+    // ここで、表示用の金額文字列を作る
+    const linePriceText = formData.hasRange
+        ? `¥${formData.lineLimitedPrice.toLocaleString()}〜`
+        : `¥${formData.lineLimitedPrice.toLocaleString()}`;
+          
             // LINEトークにメッセージを送信
-            liff.sendMessages([{
-                type: 'text',
-                text: `【ご予約内容】\nお名前：${formData.name}\n電話番号：${formData.phone}\nご来店回数：${formData.numberCount}\nオフの有無：${formData.visitCount}\nコース：${formData.selectedMenu}\nメニュー：${formData.selectedSymptom},${formData.irradiationsCount}\n希望日時：\n ${formData.dates[0]}\nメッセージ：${formData.message}`
-            }]).then(() => {
+    liff.sendMessages([{
+        type: 'text',
+        text: `【ご予約内容】\n《お名前》\n⇒${formData.name}\n《電話番号》\n⇒${formData.phone}\n《ご来店回数》\n⇒${formData.numberCount}\n\n《オフの有無》\n⇒${formData.visitCount}\n《コース》\n⇒${formData.selectedMenu}\n《メニュー》\n⇒${formData.selectedSymptom}\n《料金》\n⇒${linePriceText}\n\n《希望日時》\n⇒${formData.dates[0]}\n《メッセージ》\n⇒${formData.message}`
+    }]).then(() => {
                 /* メッセージ送信成功時の処理 */
                 alert('当日キャンセルは無いようにお願いいたします。');
                 /* LIFFウィンドウを閉じる */
