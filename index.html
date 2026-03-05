@@ -867,6 +867,13 @@
                 <button type="button" onclick="selectSymptom(this, 'treatment7')" data-price="7300">ボリュームラッシュ5D</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment8')" data-price="11000">アンドヘルシー</button>
             </div>
+            <div class="labeltyuuou">
+                <span class="highlight-text">オプション</span>
+            </div>
+            <div class="irradiations">
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)"
+                    data-price="700">アイシャンプー</button>
+            </div>
         </div>
 
         <div id="female" class="menu-section">
@@ -878,6 +885,13 @@
                 <button type="button" onclick="selectSymptom(this, 'treatment10')" data-price="6300">パリジェンヌ</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment11')" data-price="11000">アンドヘルシー</button>
             </div>
+            <div class="labeltyuuou">
+                <span class="highlight-text">オプション</span>
+            </div>
+            <div class="irradiations">
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)"
+                    data-price="700">アイシャンプー</button>
+            </div>
         </div>
 
         <div id="whitening" class="menu-section">
@@ -885,7 +899,6 @@
                 <span class="highlight-text">◆ブロウ◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment12')" data-price="700">アイシャンプー</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment13')" data-price="4000">スタイリング</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment14')" data-price="6500">パリジェンヌブローリフト</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment15')" data-price="6600">インプット</button>
@@ -984,7 +997,7 @@
 
         // 訪問回数ごとの時間設定 (例：初めて=20分、2回目以降=15分)
         let irradiationsTimes = {
-            '美白パック〈30分〉': 0
+            'アイシャンプー': 10
         };
 
         let selectedirradiationsTime = 0; // 訪問回数で選択された時間
@@ -1583,7 +1596,7 @@ function submitForm() {
             // LINEトークにメッセージを送信
     liff.sendMessages([{
         type: 'text',
-        text: `【ご予約内容】\n《お名前》\n⇒${formData.name}\n《電話番号》\n⇒${formData.phone}\n《ご来店回数》\n⇒${formData.numberCount}\n\n《オフの有無》\n⇒${formData.visitCount}\n《コース》\n⇒${formData.selectedMenu}\n《メニュー》\n⇒${formData.selectedSymptom}\n《料金》\n⇒${linePriceText}\n\n《希望日時》\n⇒${formData.dates[0]}\n《メッセージ》\n⇒${formData.message}`
+        text: `【ご予約内容】\n《お名前》\n⇒${formData.name}\n《電話番号》\n⇒${formData.phone}\n《ご来店回数》\n⇒${formData.numberCount}\n\n《オフの有無》\n⇒${formData.visitCount}\n《コース》\n⇒${formData.selectedMenu}\n《メニュー》\n⇒${formData.selectedSymptom}、${formData.irradiationsCount}\n《料金》\n⇒${linePriceText}\n\n《希望日時》\n⇒${formData.dates[0]}\n《メッセージ》\n⇒${formData.message}`
     }]).then(() => {
                 /* メッセージ送信成功時の処理 */
                 alert('当日キャンセルは無いようにお願いいたします。');
