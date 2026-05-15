@@ -1678,9 +1678,10 @@ function submitForm() {
         : `¥${formData.lineLimitedPrice.toLocaleString()}`;
           
             // LINEトークにメッセージを送信
+    const cancelAgreed = document.getElementById('cancelPolicyAgree').checked ? '同意済み' : '未同意';
     liff.sendMessages([{
         type: 'text',
-        text: `【ご予約内容】\n《お名前》\n⇒${formData.name}\n《電話番号》\n⇒${formData.phone}\n《ご来店回数》\n⇒${formData.numberCount}\n\n《オフの有無》\n⇒${formData.visitCount}\n《コース》\n⇒${formData.selectedMenu}\n《メニュー》\n⇒${formData.selectedSymptom}、${formData.irradiationsCount}\n《料金》\n⇒${linePriceText}\n\n《希望日時》\n⇒${formData.dates[0]}\n《メッセージ》\n⇒${formData.message}`
+        text: `【ご予約内容】\n《お名前》\n⇒${formData.name}\n《電話番号》\n⇒${formData.phone}\n《ご来店回数》\n⇒${formData.numberCount}\n\n《オフの有無》\n⇒${formData.visitCount}\n《コース》\n⇒${formData.selectedMenu}\n《メニュー》\n⇒${formData.selectedSymptom}、${formData.irradiationsCount}\n《料金》\n⇒${linePriceText}\n\n《希望日時》\n⇒${formData.dates[0]}\n《キャンセルポリシー》\n⇒${cancelAgreed}\n《メッセージ》\n⇒${formData.message}`
     }]).then(() => {
                 /* メッセージ送信成功時の処理 */
                 alert('当日キャンセルは無いようにお願いいたします。');
