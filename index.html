@@ -898,6 +898,9 @@
                 <button type="button" onclick="selectSymptom(this, 'treatment6')" data-price="6300">ボリュームラッシュ3D</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment7')" data-price="7300">ボリュームラッシュ5D</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment8')" data-price="11000">アンドヘルシー</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment17')" data-price="5500">LEDシングル80本</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment18')" data-price="6500">LEDシングル120本</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment19')" data-price="7500">LEDシングル160本</button>
             </div>
             <div class="labeltyuuou">
                 <span class="highlight-text">オプション</span>
@@ -1076,7 +1079,10 @@
             'スタイリング': 40,
             'パリジェンヌブローリフト': 75,    
             'インプット': 60,
-            'ラッシュリフト&ブロウ': 100
+            'ラッシュリフト&ブロウ': 100,
+            'LEDシングル80本': 60,
+            'LEDシングル120本': 75,
+            'LEDシングル160本': 90
         };
 
         let selectedMenuTime = 0;
@@ -1098,7 +1104,10 @@ const treatmentHasRange = {
   treatment13: false,
   treatment14: false,
   treatment15: false,
-  treatment16: false
+  treatment16: false,
+  treatment17: false,
+  treatment18: false,
+  treatment19: false
 };
       
         // キャンセルポリシー 開閉トグル
@@ -1423,6 +1432,12 @@ if (treatmentId === 'treatment1') {
     treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,600円</span></strong></div>`;
 } else if (treatmentId === 'treatment16') {
     treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：100分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：13,000円</span></strong></div>`;
+} else if (treatmentId === 'treatment17') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>より持ちが良いエクステなので<br>持ちが悪い方や汗をかきやすい方にオススメです✨<br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：5,500円</strong></div>`;
+} else if (treatmentId === 'treatment18') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：75分</strong><br>より持ちが良いエクステなので<br>持ちが悪い方や汗をかきやすい方にオススメです✨<br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,500円</strong></div>`;
+} else if (treatmentId === 'treatment19') {
+    treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>より持ちが良いエクステなので<br>持ちが悪い方や汗をかきやすい方にオススメです✨<br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：7,500円</strong></div>`;
 }
 
             // `treatment-text` を選択されたボタンの直後に移動
