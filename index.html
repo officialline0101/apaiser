@@ -890,14 +890,14 @@
                 <span class="highlight-text">◆まつエク◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="6300">シングルつけ放題</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment2')" data-price="4800">シングル140本</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment3')" data-price="4300">シングル100本</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment4')" data-price="3500">シングル60本</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment5')" data-price="6500">中顔面短縮160本上下振り分けOK</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment6')" data-price="6300">ボリュームラッシュ3D</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment7')" data-price="7300">ボリュームラッシュ5D</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment8')" data-price="11000">アンドヘルシー</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="6500">シングルつけ放題</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment2')" data-price="5000">シングル140本</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment3')" data-price="4500">シングル100本</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment4')" data-price="3700">シングル60本</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment5')" data-price="8000">中顔面短縮160本上下振り分けOK</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment6')" data-price="6500">ボリュームラッシュ3D</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment7')" data-price="7500">ボリュームラッシュ5D</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment8')" data-price="12000">アンドヘルシー</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment17')" data-price="5500">LEDシングル80本</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment18')" data-price="6500">LEDシングル120本</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment19')" data-price="7500">LEDシングル160本</button>
@@ -916,9 +916,9 @@
                 <span class="highlight-text">◆ラッシュリフト◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-price="6300">ラッシュリフト</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment10')" data-price="6300">パリジェンヌ</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment11')" data-price="11000">アンドヘルシー</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-price="6500">ラッシュリフト</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment10')" data-price="6500">パリジェンヌ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment11')" data-price="12000">アンドヘルシー</button>
             </div>
             <div class="labeltyuuou">
                 <span class="highlight-text">オプション</span>
@@ -1262,7 +1262,7 @@ const treatmentHasRange = {
             let minutes = totalMinutes % 60;
             let totalTimeText = `<span style="${labelStyle}"><strong>所要時間</strong></span> ${hours > 0 ? hours + '時間' : ''}${minutes}分`;
 
-            const totalAmountText = `<span style="${labelStyle}"><strong>合計金額</strong></span> ¥${menuPrice + optionsPrice}`;
+            const totalAmountText = `<span style="${labelStyle}"><strong>合計金額</strong></span> ¥${(menuPrice + optionsPrice).toLocaleString()}${selectedHasRange ? '〜' : ''}`;
 
             const selectedDateText = selectedFullDate
                 ? `<span style="${labelStyle}"><strong>希望日時</strong></span> ${selectedFullDate}`
@@ -1379,6 +1379,7 @@ const treatmentHasRange = {
                 selectedMenuTime = 0;
                 selectedSymptom = null; // 選択されたメニューをリセット
                 menuPrice = 0; // メニュー価格をリセット
+                selectedHasRange = false; // 〜 表記フラグをリセット
                 treatmentText.style.display = 'none';
                 return; // ここで処理を終了
             } else {
@@ -1614,6 +1615,7 @@ function selectVisit(element) {
             menuPrice = 0;             // メニューの価格リセット
             optionsPrice = 0;          // オプションの価格リセット
             totalAmount = 0;           // 合計金額リセット
+            selectedHasRange = false;  // 〜 表記フラグリセット
 
             // 表示を更新
             updateDisplayInfo();
